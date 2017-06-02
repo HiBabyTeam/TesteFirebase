@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+ <html>
+  <head>
+   <meta charset="UTF-8">
+   <title>Primer Ejemplo Firebase</title>
+  </head>
+
+  <body>
+
+  <h1 id ="holaMundo"> </h1>
+
+
+  <script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDTgFfL8QZU6kA1q9Jc9I4Lu24CuaQiJEs",
+      authDomain: "hibaby-1bebf.firebaseapp.com",
+      databaseURL: "https://hibaby-1bebf.firebaseio.com",
+      projectId: "hibaby-1bebf",
+      storageBucket: "hibaby-1bebf.appspot.com",
+      messagingSenderId: "9227781946"
+
+    };
+    firebase.initializeApp(config);
+    var holaMundo = document.getElementById('holaMundo');
+    var dbRef = firebase.database().ref().child('text');
+    dbRef.on('value', snap => holaMundo.innerText = snap.val() );
+  </script>
+  </body>
+
+</html>
